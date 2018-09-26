@@ -9,3 +9,6 @@ Descritivo: [Exercicio1](https://www.moodle.ufba.br/pluginfile.php/616212/mod_re
         
 2. Exercicio 2: [exercicio2.asm](../master/exercicio2.asm)
 * Intuito: Treinar saltos condicionais e loops ao identificar se um numero é primo ou não
+
+3. Exercicio 3: [exercicio3.asm](../master/exercicio3.asm)
+* Intuito: Treinar deslocamentos e operações bitwise na conversão de um número binário em um número decimal  
