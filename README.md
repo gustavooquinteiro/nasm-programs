@@ -18,3 +18,6 @@ Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel a
 
 5. [Criptografia de Júlio César](../master/exercicio5.asm)
 * Intuito: Treinar operações com vetores, utilizando os registradores edi e esi, na criptografia de uma mensagem de 10 letras. [Descritivo](https://www.moodle.ufba.br/pluginfile.php/630179/mod_resource/content/1/exercicio_vetores.pdf)
+
+6. [Inversão de palavras](../master/exercicio6.asm)
+* Intuito: Treinar operações com a região da memória central comandada pela CPU, a pilha, ao fazer a inversão de cada palavra de uma frase 
