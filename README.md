@@ -24,3 +24,8 @@ Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel a
 
 7. [Fibonacci recursivo](../master/exercicio7.asm)
 * Intuito: Treinar operações com a pilha, comandada pela CPU, em chamadas de funções recursivas para calcular o i-ésimo número de Fibonacci
+
+> OBS: A partir daqui serão utilizadas as interrupções do sistema Linux, então **não** será mais necessária a utilização da [biblioteca para facilitar entrada e saida de dados](https://disciplinas.dcc.ufba.br/pub/MATA49/InstalacaoLinux32Bits/linux-ex.zip) e os comandos para compilar o aquivo agora são: `nasm -f elf32 arquivo.asm && ld -m elf_i386 -s -o executavel arquivo.o && ./executavel` Substitua `arquivo` pelo nome do arquivo a ser compilado e `executavel` pelo nome do executável a ser criado
+
+8. [Soma de dois números](../master/exercicio8.asm)
+* Intuito: Treinar interrupções do sistema Linux para realizar a leitura de dois números e a escrita de sua soma 
