@@ -1,7 +1,7 @@
 # nasm-programs
 Programas em NASM Assembly, de acordo a matéria MATA49 - Programação de Software Básico, ministrada por Leandro Andrade
-> OBS: assumo que os arquivos .asm serão colocados dentro da [biblioteca para facilitar entrada e saida de dados](https://disciplinas.dcc.ufba.br/pub/MATA49/InstalacaoLinux32Bits/linux-ex.zip)  
-Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel arquivo.o driver.c asm_io.o ``` Substitua ``` arquivo ``` pelo nome do arquivo a ser compilado e ``` executavel ``` pelo nome do executável a ser criado
+> OBS: assumo que os arquivos Assembly serão colocados dentro da [biblioteca para facilitar entrada e saida de dados](https://disciplinas.dcc.ufba.br/pub/MATA49/InstalacaoLinux32Bits/linux-ex.zip)  
+Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel arquivo.o driver.c asm_io.o && ./executavel ``` Substitua ``` arquivo ``` pelo nome do arquivo a ser compilado e ``` executavel ``` pelo nome do executável a ser criado
 
 ## Exercicios
 1. [Calculadora simples](../master/exercicio1.asm) 
@@ -21,3 +21,6 @@ Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel a
 
 6. [Inversão de palavras](../master/exercicio6.asm)
 * Intuito: Treinar operações com a região da memória central comandada pela CPU, a pilha, ao fazer a inversão de cada palavra de uma frase 
+
+7. [Fibonacci recursivo](../master/exercicio7.asm)
+* Intuito: Treinar operações com a pilha, comandada pela CPU, em chamadas de funções recursivas para calcular o i-ésimo número de Fibonacci
