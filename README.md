@@ -1,6 +1,6 @@
 # nasm-programs
 Programas em NASM Assembly, de acordo a matéria MATA49 - Programação de Software Básico, ministrada por Leandro Andrade
-> OBS: assumo que os arquivos Assembly serão colocados dentro da [biblioteca para facilitar entrada e saida de dados](https://disciplinas.dcc.ufba.br/pub/MATA49/InstalacaoLinux32Bits/linux-ex.zip)  
+> OBS: assumo que os arquivos Assembly serão colocados dentro da [biblioteca para facilitar entrada e saida de dados](https://disciplinas.dcc.ufba.br/pub/MATA49/InstalacaoLinux32Bits/linux-ex.zip)
 Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel arquivo.o driver.c asm_io.o && ./executavel ``` Substitua ``` arquivo ``` pelo nome do arquivo a ser compilado e ``` executavel ``` pelo nome do executável a ser criado
 
 ## Exercicios
@@ -29,3 +29,6 @@ Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel a
 
 8. [Soma de dois números](../master/exercicio8.asm)
 * Intuito: Treinar interrupções do sistema Linux para realizar a leitura de dois números e a escrita de sua soma 
+
+9. [Produto Escalar](../master/produtoescalarinline.c)
+* Intuito: Verificar a diferença de tempo de execução de programas com funções em C e funções com Assembly inline no produto escalar entre dois vetores
