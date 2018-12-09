@@ -16,18 +16,20 @@ float produtoEscalar(float * a, float * b, int n){
 
 float produtoEscalarAsmInline(float * a, float * b, int n){
     float answer = 0.0;
-    asm(    "finit;"
+    asm(    
+            "finit;"
             "FOR:"
-            "fldl (%%eax, %%ecx, 0x4);"
-            "fldl (%%ebx, %%ecx, 0x4);"
-            "fmul %%ST;"
-            "fadd %%ST, %%ST(1);"
+            "fldl (%%eax, %%ecx, 4);"
+            "fldl (%%ebx, %%ecx, 4);"
+            "fmul %%ST(1), %%ST;"
+            "fldl (%0);"
+            "fadd %%ST(2), %%ST;"
+            "fstp (%0);"
             "inc %%ecx;"
-            "cmp %%ecx, %4;"
-            "jl FOR;"
-            "movl %%edx, %0"
+            "cmpl    %%ecx, %%edx;"
+            "jl FOR;"   
         :"=r"(answer)
-        :"c"(0), "b"(a), "a"(b), "r"(n), "d"(0)
+        :"c"(0), "b"(a), "a"(b), "d"(n)
         :
     );    
     return answer;
