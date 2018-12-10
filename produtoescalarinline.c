@@ -17,8 +17,9 @@ float produtoEscalar(float * a, float * b, int n){
 float produtoEscalarAsmInline(float * a, float * b, int n){
     float answer = 0.0;
     asm(    
-            "finit;"
+
             "FOR:"
+            "finit;"
             "fldl (%%eax, %%ecx, 4);"
             "fldl (%%ebx, %%ecx, 4);"
             "fmul %%ST(1), %%ST;"
