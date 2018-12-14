@@ -14,57 +14,51 @@ float produtoEscalar(float * a, float * b, int n){
     
 }
 
-float produtoEscalarAsmInline(float * a, float * b, int n){
-    float answer = 0.0;
-    asm(    
-
-            "FOR:"
+float produtoEscalarAsmInline(float* a, float* b, int n){
+    float result = 0;
+    register int i =n;
+    asm(   
+            "movl %3, %%ecx;"
+            "dec %%ecx;"
+            "movl %1, %%eax;"
+            "movl %2, %%ebx;"
             "finit;"
-            "fldl (%%eax, %%ecx, 4);"
-            "fldl (%%ebx, %%ecx, 4);"
-            "fmul %%ST(1), %%ST;"
-            "fldl (%0);"
-            "fadd %%ST(2), %%ST;"
-            "fstp (%0);"
-            "inc %%ecx;"
-            "cmpl    %%ecx, %%edx;"
-            "jl FOR;"   
-        :"=r"(answer)
-        :"c"(0), "b"(a), "a"(b), "d"(n)
-        :
-    );    
-    return answer;
-    
+        "for: "
+            "fld (%%eax, %%ecx, 4);"
+            "fld (%%ebx, %%ecx, 4);"
+            "fmulp;"
+            "fld %0;"
+            "faddp;"
+            "fstp %0;"
+            "loop for;"
+        :"=m"(result)
+        :"g"(a), "g"(b), "g"(i)
+        );
+
+    return(result);
 }
 
 
 int main(){
     register int y =0;
-    for (y; y < 99999; y++){
-        int n = 10;
-        //scanf("%d", &n);
+    for (y; y < 9999999; y++){
+        int n = 100;
         float a[n], b[n];
-        
-        srand((unsigned int)time(NULL));
+    
         register int i = 0;
         
         float seed = (rand()/(float)RAND_MAX);
         
+        // Geração de vetor com numeros aleatórios
         for (i; i < n; i++){
             a[i] = ((float)rand()/(float)RAND_MAX) * seed;
             b[i]= ((float)rand()/(float)RAND_MAX) * seed;
         }
-        /*printf("VETOR A: ");
-        for (i=0; i < n; i++)
-            printf("%f ", a[i]);
-        printf("\n");
-        
-        printf("VETOR B: ");
-        for (i=0; i < n; i++)
-            printf("%f ", b[i]);
-        printf("\n");*/
-        
-        printf("PRODUTO ESCALAR ENTRE A E B = %f\n", produtoEscalar(a, b, n));  
-        printf("PRODUTO ESCALAR ENTRE A E B = %f\n", produtoEscalarAsmInline(a, b, n));  
+                
+        produtoEscalarAsmInline(a, b, n);
+        //produtoEscalar(a, b, n);
     }
+    
+    
+    
 } 

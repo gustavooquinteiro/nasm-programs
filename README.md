@@ -32,3 +32,4 @@ Comando para compilar: ``` nasm -f elf32 arquivo.asm && gcc -m32 -o executavel a
 
 9. [Produto Escalar](../master/produtoescalarinline.c)
 * Intuito: Verificar a diferença de tempo de execução de programas com funções em C e funções com Assembly inline no produto escalar entre dois vetores
+* Compilar com `gcc -m32 produtoescalarinline.c` 
